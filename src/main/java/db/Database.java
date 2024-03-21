@@ -7,12 +7,14 @@ import java.sql.Statement;
 
 public class Database {
     private static final Database INSTANCE = new Database();
-    private  static final String dbUrl = "jdbc:h2:./test";
+    private  static final String dbUrl = "jdbc:h2:~/test";
+    private  static final String USER_NAME = "sa";
+    public static final String PASSWORD = "";
     private Connection connection;
 
     private Database() {
         try {
-            connection = DriverManager.getConnection(dbUrl);
+            connection = DriverManager.getConnection(dbUrl, USER_NAME, PASSWORD);
         } catch (Exception  ex) {
             ex.printStackTrace();
         }
